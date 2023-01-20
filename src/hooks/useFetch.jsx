@@ -22,6 +22,6 @@ export default function useFetch() {
   }, []);
 
   return {
-    searchPlanets, data, loading, error,
+    data, loading, error,
   };
 }

@@ -6,10 +6,10 @@ import useFetch from './hooks/useFetch';
 import Table from './components/Table';
 
 function App() {
-  const { searchPlanets, data, loading, error } = useFetch();
+  const { data, loading, error } = useFetch();
 
   return (
-    <FetchContext.Provider value={ { searchPlanets, data, loading, error } }>
+    <FetchContext.Provider value={ { data, loading, error } }>
       <main>
         <Header />
         <Table />

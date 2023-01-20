@@ -3,6 +3,7 @@ import FetchContext from '../context/FetchContext';
 
 function Table() {
   const { data, loading } = useContext(FetchContext);
+
   return (
     <div>
       {
@@ -12,14 +13,9 @@ function Table() {
             <thead>
               <tr>
                 {
-                  data.map((planets) => {
-                    const planetsKeys = Object.keys(planets);
-                    return planetsKeys.map((keys) => (
-                      <th key={ keys }>
-                        { keys }
-                      </th>
-                    ));
-                  })
+                  Object.keys(data[0]).map((key) => (
+                    <th key={ key }>{ key }</th>
+                  ))
                 }
               </tr>
             </thead>
