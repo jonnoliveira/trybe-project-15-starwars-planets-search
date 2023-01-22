@@ -1,20 +1,35 @@
 import React from 'react';
 import Header from './components/Header';
-import FetchContext from './context/FetchContext';
-import './App.css';
-import useFetch from './hooks/useFetch';
 import Table from './components/Table';
+import './App.css';
+import InputFilterContext from './context/InputFilterContext';
+import useInputFilter from './hooks/useInputFilter';
 
 function App() {
-  const { data, loading, error } = useFetch();
+  const {
+    text,
+    handleChange,
+    dataFiltered, loading, error, options, setOptions, filterByOptions,
+  } = useInputFilter('');
 
   return (
-    <FetchContext.Provider value={ { data, loading, error } }>
+    <InputFilterContext.Provider
+      value={
+        { loading,
+          error,
+          text,
+          handleChange,
+          dataFiltered,
+          options,
+          setOptions,
+          filterByOptions }
+      }
+    >
       <main>
         <Header />
         <Table />
       </main>
-    </FetchContext.Provider>
+    </InputFilterContext.Provider>
   );
 }
 

@@ -5,8 +5,7 @@ export default function useFetch() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const searchPlanets = () => {
-    setLoading(true);
+  const searchPlanets = async () => {
     fetch('https://swapi.dev/api/planets')
       .then((planets) => planets.json())
       .then((planets) => planets.results.map((planet) => {
