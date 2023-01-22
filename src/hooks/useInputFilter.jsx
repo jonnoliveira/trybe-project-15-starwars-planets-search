@@ -27,15 +27,15 @@ function useInputFilter(initialState) {
   const filterByOptions = () => {
     const { column, comparison, value } = options;
     if (comparison === 'igual a') {
-      setDataFiltered(data.filter((planet) => (
+      setDataFiltered(dataFiltered.filter((planet) => (
         planet[column] === value))); // não passa como number?
     }
     if (comparison === 'menor que') {
-      setDataFiltered(data.filter((planet) => (
+      setDataFiltered(dataFiltered.filter((planet) => (
         planet[column] < +value)));
     }
     if (comparison === 'maior que') {
-      setDataFiltered(data.filter((planet) => (
+      setDataFiltered(dataFiltered.filter((planet) => (
         planet[column] > +value)));
     }
   };
