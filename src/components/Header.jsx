@@ -3,7 +3,8 @@ import InputFilterContext from '../context/InputFilterContext';
 
 function Header() {
   const {
-    text, handleChange, options, setOptions, filterByOptions, optionsList,
+    text, handleChange, options, setOptions, filterByOptions, optionsList, filters,
+    clearFilters, resetFilters,
   } = useContext(InputFilterContext);
 
   return (
@@ -68,7 +69,35 @@ function Header() {
         >
           FILTRAR
         </button>
+
+        <button
+          type="button"
+          onClick={ resetFilters }
+          data-testid="button-remove-filters"
+        >
+          LIMPAR FILTROS
+        </button>
       </div>
+      FILTROS  UTILIZADOS:
+      {
+        filters
+          && (
+            filters.map(({ column, comparison, value }) => (
+              <div key={ column } data-testid="filter">
+                <h5>
+                  {`${column} ${comparison} ${value}`}
+                  <button
+                    type="button"
+                    onClick={ () => { clearFilters(column); } }
+                  >
+                    X
+
+                  </button>
+                </h5>
+              </div>
+            ))
+          )
+      }
     </header>
   );
 }

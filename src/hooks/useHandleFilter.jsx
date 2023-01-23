@@ -12,6 +12,11 @@ function useHandleFilter(initialState) {
     'population', 'orbital_period', 'diameter', 'rotation_period',
     'surface_water']);
 
+  const [filters, setFilters] = useState([]);
+  const [restore, setRestore] = useState(false);
+
+  // ========== FUNCTIONS ========== //
+
   const handleChange = ({ target }) => {
     setText((target.value).toLowerCase());
   };
@@ -28,12 +33,13 @@ function useHandleFilter(initialState) {
 
   const filterByOptions = () => {
     const { column, comparison, value } = options;
+
     if (comparison === 'igual a') {
       setDataFiltered(dataFiltered.filter((planet) => planet[column] === value)); // não passa como number?
-    } else
+    }
     if (comparison === 'menor que') {
       setDataFiltered(dataFiltered.filter((planet) => planet[column] < +value));
-    } else
+    }
     if (comparison === 'maior que') {
       setDataFiltered(dataFiltered.filter((planet) => planet[column] > +value));
     }
@@ -42,11 +48,54 @@ function useHandleFilter(initialState) {
       setOptionsList(filtered);
       setOptions({ ...options, column: filtered[0] });
     }
+    setFilters([...filters, options]);
+  };
+
+  const restoreFilters = () => {
+    setDataFiltered(data);
+    filters.forEach(({ column, comparison, value }) => {
+      if (filters.length === 0) {
+        setDataFiltered(data);
+        console.log('0');
+      }
+      if (comparison === 'igual a') {
+        console.log('1');
+        setDataFiltered(data.filter((planet) => planet[column] === value));
+      }
+      if (comparison === 'menor que') {
+        console.log('2');
+        setDataFiltered(data.filter((planet) => planet[column] < +value));
+      }
+      if (comparison === 'maior que') {
+        console.log('3');
+        setDataFiltered(data.filter((planet) => planet[column] > +value));
+      }
+    });
+    setRestore(false);
+  };
+
+  const clearFilters = (param) => {
+    const remainingFilters = filters.filter((filter) => filter.column !== param);
+    setFilters(remainingFilters);
+    setOptionsList([...optionsList, param]);
+    setRestore(true);
+  };
+
+  const resetFilters = () => {
+    setFilters([]);
+    setDataFiltered(data);
+    setOptionsList([
+      'population', 'orbital_period', 'diameter', 'rotation_period',
+      'surface_water']);
   };
 
   useEffect(() => {
     filterByText();
   }, [data, text]);
+
+  useEffect(() => {
+    restoreFilters();
+  }, [restore]);
 
   return {
     text,
@@ -57,6 +106,9 @@ function useHandleFilter(initialState) {
     setOptions,
     filterByOptions,
     optionsList,
+    filters,
+    clearFilters,
+    resetFilters,
   };
 }
 

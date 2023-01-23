@@ -9,8 +9,8 @@ function App() {
   const {
     text,
     handleChange,
-    dataFiltered, loading, options, setOptions, filterByOptions, optionsList,
-  } = useHandleFilter('');
+    dataFiltered, loading, options, setOptions, filterByOptions, optionsList, filters,
+    clearFilters, resetFilters } = useHandleFilter('');
   return (
     <InputFilterContext.Provider
       value={
@@ -21,7 +21,10 @@ function App() {
           options,
           setOptions,
           filterByOptions,
-          optionsList }
+          optionsList,
+          filters,
+          clearFilters,
+          resetFilters }
       }
     >
       <main>
