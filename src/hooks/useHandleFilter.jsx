@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import useFetch from './useFetch';
 
@@ -89,12 +90,10 @@ function useHandleFilter(initialState) {
 
   useEffect(() => {
     filterByText();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, text]);
 
   useEffect(() => {
     restoreFilters();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [restore]);
 
   return {
