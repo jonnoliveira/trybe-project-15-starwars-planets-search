@@ -4,10 +4,16 @@ import useFetch from '../hooks/useFetch';
 
 function Table() {
   const { dataFiltered, loading } = useContext(InputFilterContext);
-  const { data } = useFetch();
+  const { data, error } = useFetch();
 
   return (
     <div>
+      {
+        error
+        && (
+          <p>Erro na requisição. Tente novamente mais tarde.</p>
+        )
+      }
       {
         loading
           ? (

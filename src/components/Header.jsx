@@ -33,7 +33,11 @@ function Header() {
         >
           {
             optionsList.map((option) => (
-              <option key={ option } value={ option }>
+              <option
+                data-testid="column-options"
+                key={ option }
+                value={ option }
+              >
                 { option }
               </option>
 
@@ -88,6 +92,7 @@ function Header() {
                   {`${column} ${comparison} ${value}`}
                   <button
                     type="button"
+                    name={ column }
                     onClick={ () => { clearFilters(column); } }
                   >
                     X

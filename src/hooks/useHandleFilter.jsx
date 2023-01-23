@@ -51,23 +51,21 @@ function useHandleFilter(initialState) {
     setFilters([...filters, options]);
   };
 
+  console.log(filters);
+
   const restoreFilters = () => {
     setDataFiltered(data);
     filters.forEach(({ column, comparison, value }) => {
       if (filters.length === 0) {
         setDataFiltered(data);
-        console.log('0');
       }
       if (comparison === 'igual a') {
-        console.log('1');
         setDataFiltered(data.filter((planet) => planet[column] === value));
       }
       if (comparison === 'menor que') {
-        console.log('2');
         setDataFiltered(data.filter((planet) => planet[column] < +value));
       }
       if (comparison === 'maior que') {
-        console.log('3');
         setDataFiltered(data.filter((planet) => planet[column] > +value));
       }
     });
@@ -91,10 +89,12 @@ function useHandleFilter(initialState) {
 
   useEffect(() => {
     filterByText();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, text]);
 
   useEffect(() => {
     restoreFilters();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [restore]);
 
   return {
