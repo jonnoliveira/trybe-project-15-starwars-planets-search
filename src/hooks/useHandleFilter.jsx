@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import useFetch from './useFetch';
 
-function useInputFilter(initialState) {
-  const { data, loading, error } = useFetch();
-
+function useHandleFilter(initialState) {
+  const { data, loading } = useFetch();
   const [text, setText] = useState(initialState);
   const [dataFiltered, setDataFiltered] = useState();
   const [options, setOptions] = useState(
     { column: 'population', comparison: 'maior que', value: '0' },
   );
+  const [optionsList, setOptionsList] = useState([
+    'population', 'orbital_period', 'diameter', 'rotation_period',
+    'surface_water']);
 
   const handleChange = ({ target }) => {
     setText((target.value).toLowerCase());
@@ -27,16 +29,18 @@ function useInputFilter(initialState) {
   const filterByOptions = () => {
     const { column, comparison, value } = options;
     if (comparison === 'igual a') {
-      setDataFiltered(dataFiltered.filter((planet) => (
-        planet[column] === value))); // não passa como number?
-    }
+      setDataFiltered(dataFiltered.filter((planet) => planet[column] === value)); // não passa como number?
+    } else
     if (comparison === 'menor que') {
-      setDataFiltered(dataFiltered.filter((planet) => (
-        planet[column] < +value)));
-    }
+      setDataFiltered(dataFiltered.filter((planet) => planet[column] < +value));
+    } else
     if (comparison === 'maior que') {
-      setDataFiltered(dataFiltered.filter((planet) => (
-        planet[column] > +value)));
+      setDataFiltered(dataFiltered.filter((planet) => planet[column] > +value));
+    }
+    if (optionsList.includes(column)) {
+      const filtered = optionsList.filter((option) => option !== column);
+      setOptionsList(filtered);
+      setOptions({ ...options, column: filtered[0] });
     }
   };
 
@@ -49,11 +53,13 @@ function useInputFilter(initialState) {
     handleChange,
     dataFiltered,
     loading,
-    error,
     options,
     setOptions,
     filterByOptions,
+    optionsList,
   };
 }
 
-export default useInputFilter;
+useHandleFilter.propTypes = {}.isRequired;
+
+export default useHandleFilter;

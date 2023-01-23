@@ -3,7 +3,7 @@ import InputFilterContext from '../context/InputFilterContext';
 
 function Header() {
   const {
-    text, handleChange, options, setOptions, filterByOptions,
+    text, handleChange, options, setOptions, filterByOptions, optionsList,
   } = useContext(InputFilterContext);
 
   return (
@@ -30,11 +30,14 @@ function Header() {
             setOptions({ ...options, column: target.value })) }
           data-testid="column-filter"
         >
-          <option value="population">population</option>
-          <option value="orbital_period">orbital_period</option>
-          <option value="diameter">diameter</option>
-          <option value="rotation_period">rotation_period</option>
-          <option value="surface_water">surface_water</option>
+          {
+            optionsList.map((option) => (
+              <option key={ option } value={ option }>
+                { option }
+              </option>
+
+            ))
+          }
         </select>
 
         <select

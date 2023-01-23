@@ -3,26 +3,25 @@ import Header from './components/Header';
 import Table from './components/Table';
 import './App.css';
 import InputFilterContext from './context/InputFilterContext';
-import useInputFilter from './hooks/useInputFilter';
+import useHandleFilter from './hooks/useHandleFilter';
 
 function App() {
   const {
     text,
     handleChange,
-    dataFiltered, loading, error, options, setOptions, filterByOptions,
-  } = useInputFilter('');
-
+    dataFiltered, loading, options, setOptions, filterByOptions, optionsList,
+  } = useHandleFilter('');
   return (
     <InputFilterContext.Provider
       value={
         { loading,
-          error,
           text,
           handleChange,
           dataFiltered,
           options,
           setOptions,
-          filterByOptions }
+          filterByOptions,
+          optionsList }
       }
     >
       <main>
