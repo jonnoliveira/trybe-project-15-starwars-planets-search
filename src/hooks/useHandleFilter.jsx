@@ -58,9 +58,6 @@ function useHandleFilter(initialState) {
   const restoreFilters = () => {
     setDataFiltered(data);
     filters.forEach(({ column, comparison, value }) => {
-      if (filters.length === 0) {
-        setDataFiltered(data);
-      }
       if (comparison === 'igual a') {
         setDataFiltered(data.filter((planet) => planet[column] === value));
       }

@@ -63,6 +63,40 @@ describe('Test the "Header" component', () => {
     expect(dagobahPlanet).toBeDefined();
   })
 
+  it('checks that the list of filter options is updated with each choice', async () => {
+    const inputOptions = screen.getByTestId('column-filter');
+    const inputComparison = screen.getByTestId('comparison-filter');
+    const inputValue = screen.getByTestId('value-filter');
+    const btnFilter = screen.getByTestId('button-filter');
+
+    act(() => {
+      userEvent.selectOptions(inputOptions, 'population');
+      userEvent.selectOptions(inputComparison, 'igual a');
+      userEvent.clear(inputValue);
+      userEvent.type(inputValue, '8900');
+      userEvent.click(btnFilter)
+    })
+
+    expect(inputOptions.innerHTML.includes('population')).toBeFalsy();
+
+    const options = await screen.findAllByTestId('column-options');
+    expect(options[0].innerHTML).toBe('orbital_period');
+
+    act(() => {
+      userEvent.selectOptions(inputOptions, 'diameter');
+      userEvent.selectOptions(inputComparison, 'maior que');
+      userEvent.clear(inputValue);
+      userEvent.type(inputValue, '5896');
+      userEvent.click(btnFilter)
+    })
+
+    expect(inputOptions.innerHTML.includes('diameter')).toBeFalsy();
+
+    const options2 = await screen.findAllByTestId('column-options');
+    expect(options2[2].innerHTML).toBe('surface_water');
+
+  })
+
   it('checks if multiple numerical filters are applied simultaneously', async () => {
     const inputOptions = screen.getByTestId('column-filter');
     const inputComparison = screen.getByTestId('comparison-filter');
@@ -79,6 +113,12 @@ describe('Test the "Header" component', () => {
 
     const rows = await screen.findAllByRole('row');
     expect(rows.length).toBe(8)
+
+    const planetsDiameter = await screen.findAllByTestId('planet-diameter');
+    expect(planetsDiameter[0].innerHTML).toBe('10465');
+    expect(planetsDiameter[4].innerHTML).toBe('12120');
+    expect(planetsDiameter[2].innerHTML).toBe('10200');
+    expect(planetsDiameter[6].innerHTML).toBe('19720');
 
     act(() => {
       userEvent.selectOptions(inputOptions, 'population');
@@ -176,27 +216,51 @@ describe('Test the "Header" component', () => {
     expect(rows2.length).toBe(4)
 
     act(() => {
-      userEvent.selectOptions(inputOptions, 'rotation_period');
-      userEvent.selectOptions(inputComparison, 'igual a');
+      userEvent.selectOptions(inputOptions, 'surface_water');
+      userEvent.selectOptions(inputComparison, 'maior que');
       userEvent.clear(inputValue);
-      userEvent.type(inputValue, '12');
+      userEvent.type(inputValue, '0');
     })
-
-    expect(inputOptions.value).toBe('rotation_period');
-    expect(inputComparison.value).toBe('igual a');
-    expect(inputValue.value).toBe('12');
 
     act(() => {
       userEvent.click(btnFilter)
     })
 
     const rows3 = await screen.findAllByRole('row');
-    expect(rows3.length).toBe(2)
+    expect(rows3.length).toBe(3)
 
-    const beginPlanet = await screen.findByRole('cell', {
-      name: /bespin/i,
+    const tatooinePlanet = await screen.findByRole('cell', {
+      name: /tatooine/i,
     })
-    expect(beginPlanet).toBeDefined();
+
+    const yavinPlanet = await screen.findByRole('cell', {
+      name: /yavin IV/i,
+    })
+    expect(tatooinePlanet && yavinPlanet).toBeDefined();
+
+    act(() => {
+      userEvent.selectOptions(inputOptions, 'rotation_period');
+      userEvent.selectOptions(inputComparison, 'igual a');
+      userEvent.clear(inputValue);
+      userEvent.type(inputValue, '23');
+    })
+
+    expect(inputOptions.value).toBe('rotation_period');
+    expect(inputComparison.value).toBe('igual a');
+    expect(inputValue.value).toBe('23');
+
+    act(() => {
+      userEvent.click(btnFilter)
+    })
+
+    const rows4 = await screen.findAllByRole('row');
+    expect(rows4.length).toBe(2)
+
+    const tatooinePlanet2 = await screen.findByRole('cell', {
+      name: /tatooine/i,
+    })
+
+    expect(tatooinePlanet2).toBeDefined();
 
     const filterI = screen.getByRole('heading', {
       name: /diameter maior que 8900 x/i,
@@ -209,50 +273,67 @@ describe('Test the "Header" component', () => {
     })
 
     const filterIII = screen.getByRole('heading', {
-      name: /rotation_period igual a 12 x/i,
+      name: /surface_water maior que 0 x/i,
       level: 5
     })
 
-    expect(filterI && filterII && filterIII).toBeDefined();
+    const filterIV = screen.getByRole('heading', {
+      name: /rotation_period igual a 23 x/i,
+      level: 5
+    })
+
+    expect(filterI && filterII && filterIII && filterIV).toBeDefined();
 
     const removeFilterIII = await screen.findAllByRole('button', {
       name: /x/i,
     })
-    expect(removeFilterIII.length).toBe(3);
+    expect(removeFilterIII.length).toBe(4);
 
     act(() => {
-      userEvent.click(removeFilterIII[0])
+      userEvent.click(removeFilterIII[2])
     })
+
+    const rows5 = await screen.findAllByRole('row');
+    expect(rows5.length).toBe(4)
 
     const removeFilterII = await screen.findAllByRole('button', {
       name: /x/i,
     })
 
-    expect(removeFilterII.length).toBe(2);
-
-    const rows4 = await screen.findAllByRole('row');
-    expect(rows4.length).toBe(2)
-
+    expect(removeFilterII.length).toBe(3);
 
     act(() => {
       userEvent.click(removeFilterII[1])
     })
 
+    const rows6 = await screen.findAllByRole('row');
+    expect(rows6.length).toBe(4)
+
     const removeFilterI = await screen.findAllByRole('button', {
       name: /x/i,
     })
 
-    expect(removeFilterI.length).toBe(1);
-
-    const rows5 = await screen.findAllByRole('row');
-    expect(rows5.length).toBe(5)
+    expect(removeFilterI.length).toBe(2);
 
     act(() => {
       userEvent.click(removeFilterII[0])
     })
 
-    const rows6 = await screen.findAllByRole('row');
-    expect(rows6.length).toBe(11)
+    const rows7 = await screen.findAllByRole('row');
+    expect(rows7.length).toBe(4)
+
+    const removeFilter = await screen.findAllByRole('button', {
+      name: /x/i,
+    })
+
+    expect(removeFilter.length).toBe(1);
+
+    act(() => {
+      userEvent.click(removeFilter[0])
+    })
+
+    const rows8 = await screen.findAllByRole('row');
+    expect(rows8.length).toBe(11)
   })
 
   it('checks that all filters are cleared simultaneously', async () => {
@@ -317,4 +398,43 @@ describe('Test the "Header" component', () => {
     expect(error).toBeDefined()
 
   });
+
+  it('checks that sorting filters work correctly  ', async () => {
+    const inputSortOptions = screen.getByTestId('column-sort');
+    const inputASC = screen.getByTestId('column-sort-input-asc');
+    const inputDESC = screen.getByTestId('column-sort-input-desc');
+    const btnSort = screen.getByTestId('column-sort-button');
+
+    expect(inputSortOptions && inputASC && inputDESC && btnSort).toBeDefined();
+
+    act(() => {
+      userEvent.selectOptions(inputSortOptions, 'diameter');
+      userEvent.click(inputDESC);
+      userEvent.click(btnSort)
+    })
+
+    const rows = await screen.findAllByRole('row');
+    expect(rows.length).toBe(11)
+
+    const planets = await screen.findAllByTestId('planet-name');
+    expect(planets[0].innerHTML).toBe('Bespin');
+    expect(planets[4].innerHTML).toBe('Naboo');
+    expect(planets[7].innerHTML).toBe('Dagobah');
+    expect(planets[9].innerHTML).toBe('Endor');
+
+    act(() => {
+      userEvent.selectOptions(inputSortOptions, 'population');
+      userEvent.click(inputASC);
+      userEvent.click(btnSort)
+    })
+
+    const rows2 = await screen.findAllByRole('row');
+    expect(rows2.length).toBe(11)
+
+    const planets2 = await screen.findAllByTestId('planet-name');
+    expect(planets2[0].innerHTML).toBe('Yavin IV');
+    expect(planets2[4].innerHTML).toBe('Kamino');
+    expect(planets2[8].innerHTML).toBe('Hoth');
+    expect(planets2[9].innerHTML).toBe('Dagobah');
+  })
 });

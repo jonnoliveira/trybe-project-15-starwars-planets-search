@@ -42,7 +42,7 @@ function Table() {
                       <td>{ planets.rotation_period }</td>
                       <td>{ planets.orbital_period }</td>
                       <td>{ planets.rotation_period }</td>
-                      <td>{ planets.diameter }</td>
+                      <td data-testid="planet-diameter">{ planets.diameter }</td>
                       <td>{ planets.climate }</td>
                       <td>{ planets.gravity }</td>
                       <td>{ planets.terrain }</td>
