@@ -4,7 +4,7 @@ import InputFilterContext from '../context/InputFilterContext';
 function Header() {
   const {
     text, handleChange, options, setOptions, filterByOptions, optionsList, filters,
-    clearFilters, resetFilters,
+    clearFilters, resetFilters, sortedFilters, setCol, setSor,
   } = useContext(InputFilterContext);
 
   return (
@@ -80,6 +80,57 @@ function Header() {
           data-testid="button-remove-filters"
         >
           LIMPAR FILTROS
+        </button>
+
+        <select
+          name="column-sort"
+          onChange={ ({ target }) => setCol(target.value) }
+          data-testid="column-sort"
+        >
+          {
+            optionsList.map((option) => (
+              <option
+                data-testid="column-options"
+                key={ option }
+                value={ option }
+              >
+                { option }
+              </option>
+
+            ))
+          }
+        </select>
+        <label htmlFor="ASC">
+          <input
+            type="radio"
+            name="RADIO"
+            id="ASC"
+            data-testid="column-sort-input-asc"
+            value="ASC"
+            onChange={ ({ target }) => setSor(target.value) }
+          />
+          ASCENDENTE
+        </label>
+        <label htmlFor="DESC">
+          <input
+            type="radio"
+            name="RADIO"
+            id="DESC"
+            data-testid="column-sort-input-desc"
+            value="DESC"
+            onChange={ ({ target }) => setSor(target.value) }
+          />
+          DESCENDENTE
+        </label>
+
+        <button
+          type="button"
+          onClick={ () => { sortedFilters(); } }
+          data-testid="column-sort-button"
+
+        >
+          ORDENAR
+
         </button>
       </div>
       FILTROS  UTILIZADOS:

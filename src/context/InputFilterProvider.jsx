@@ -7,7 +7,8 @@ export default function InputFilterProvider({ children }) {
     text,
     handleChange,
     dataFiltered, loading, options, setOptions, filterByOptions, optionsList,
-    filters, clearFilters, resetFilters } = useHandleFilter('');
+    filters, clearFilters, resetFilters, sortedFilters,
+    setCol, setSor } = useHandleFilter('');
 
   return (
     <InputFilterContext.Provider
@@ -23,6 +24,9 @@ export default function InputFilterProvider({ children }) {
         filters,
         clearFilters,
         resetFilters,
+        sortedFilters,
+        setCol,
+        setSor,
       } }
     >
       { children }

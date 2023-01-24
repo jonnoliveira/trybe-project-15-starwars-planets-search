@@ -15,6 +15,9 @@ function useHandleFilter(initialState) {
 
   const [filters, setFilters] = useState([]);
   const [restore, setRestore] = useState(false);
+  const [col, setCol] = useState('population');
+  const [sor, setSor] = useState('ASC');
+  const [sorted, setSorted] = useState({ order: { column: '', sort: '' } });
 
   // ========== FUNCTIONS ========== //
 
@@ -52,8 +55,6 @@ function useHandleFilter(initialState) {
     setFilters([...filters, options]);
   };
 
-  console.log(filters);
-
   const restoreFilters = () => {
     setDataFiltered(data);
     filters.forEach(({ column, comparison, value }) => {
@@ -88,6 +89,24 @@ function useHandleFilter(initialState) {
       'surface_water']);
   };
 
+  const sortedFilters = () => {
+    const newData = (data.filter((planet) => (planet[col] !== 'unknown')));
+    const unknown = data.filter((planet) => (
+      planet[col] === 'unknown'));
+
+    if (sor === 'ASC') {
+      newData.sort((a, b) => a[col] - b[col]);
+      const planets = [...newData, ...unknown];
+      setDataFiltered(planets);
+    }
+    if (sor === 'DESC') {
+      newData.sort((a, b) => b[col] - a[col]);
+      const planets = [...newData, ...unknown];
+      setDataFiltered(planets);
+    }
+    setSorted({ order: { column: col, sort: sor } });
+  };
+
   useEffect(() => {
     filterByText();
   }, [data, text]);
@@ -108,6 +127,11 @@ function useHandleFilter(initialState) {
     filters,
     clearFilters,
     resetFilters,
+    sorted,
+    setSorted,
+    sortedFilters,
+    setCol,
+    setSor,
   };
 }
 
