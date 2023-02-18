@@ -67,7 +67,7 @@ Nesse projeto utilizei React com Context API e Hooks como tecnologias prncipais 
 
 ## 100% :heavy_check_mark:
 
-![Project-Starwars-Grade]()
+![Project-Starwars-Grade](https://github.com/jonnoliveira/trybe-project-15-starwars-planets-search/blob/main/images/starwars-planet-search-grade.png)
 
 </details> 
  
