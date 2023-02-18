@@ -1,13 +1,88 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# PROJETO 15 - STAR WARS PLANETS SEARCH :computer:
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+## Esse projeto pertence ao módulo de `front-end` do curso da [Trybe](https://www.betrybe.com/) :green_heart:
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## :construction: CSS em aprimoramento :construction:
+ 
+<details>
+ 
+<summary>
+  
+## 1- Resumo
+  
+</summary>
+
+No projeto StarWars Planets Search deveríamos desenvolver uma aplicação capaz de renderizar uma tabela composta por alguns planetas do universo de Star Wars e suas várias características.
+
+O diferencial nessa aplicação foi a possibilidade de inserção de diversos filtros, tanto textuais como numéricos, podendo ainda agrupar filtros simultâneos.
+
+Nesse projeto utilizei React com Context API e Hooks como tecnologias prncipais para compartilhamento de dados entre todos os níveis da aplicação, bem como para manipulação e gerenciamento de estado. Por fim, para os testes utilizei RTL/Jest. Veja mais abaixo!
+
+</details>
+
+#
+
+<details>
+ 
+<summary>
+ 
+## 2- Requisitos
+
+</summary>
+
+### I. Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos da coluna `residents`
+
+### II. Crie um filtro de texto para a tabela
+
+### III. Crie um filtro para valores numéricos
+
+### IV. Implemente múltiplos filtros numéricos
+
+### V. Desenvolva testes para atingir 30% de cobertura total da aplicação
+
+### VI. Não utilize filtros repetidos
+
+### VII. Apague um filtro de valor numérico ao clicar no ícone de X de um dos filtros e apague todas filtragens numéricas simultaneamente ao clicar em outro botão de Remover todas filtragens
+
+### VIII. Desenvolva testes para atingir 60% de cobertura total da aplicação
+
+### IX. Ordene as colunas de forma ascendente ou descendente
+---
+
+## Requisitos Bônus
+
+### X. Desenvolva testes para atingir 90% de cobertura total da aplicação
+
+</details>
+
+# 
+
+<details>
+ 
+<summary>
+
+## 3- Nota do Projeto
+ 
+</summary>
+
+## 100% :heavy_check_mark:
+
+![Project-Starwars-Grade]()
+
+</details> 
+ 
+# 
+
+<details>
+ 
+<summary>
+
+## 4- Preview
+
+</summary>
+
+![Project-Starwars-Preview]()
+
+</details>
+
+
