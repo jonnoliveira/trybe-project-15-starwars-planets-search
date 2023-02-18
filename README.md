@@ -12,7 +12,7 @@
   
 </summary>
 
-No projeto StarWars Planets Search deveríamos desenvolver uma aplicação capaz de renderizar uma tabela composta por alguns planetas do universo de Star Wars e suas várias características.
+No projeto Star Wars Planets Search deveríamos desenvolver uma aplicação capaz de renderizar uma tabela composta por alguns planetas do universo de Star Wars e suas várias características.
 
 O diferencial nessa aplicação foi a possibilidade de inserção de diversos filtros, tanto textuais como numéricos, podendo ainda agrupar filtros simultâneos.
 
