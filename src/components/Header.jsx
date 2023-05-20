@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import InputFilterContext from '../context/InputFilterContext';
 import search from '../assets/search.svg';
+import close from '../assets/close.svg';
 
 import '../css/header.css';
 
@@ -157,27 +158,29 @@ function Header() {
 
         </button>
       </div>
-      FILTROS  UTILIZADOS:
-      {
-        filters
+
+      <div className="filters-list-container">
+        <h3>FILTROS  UTILIZADOS:</h3>
+        {
+          filters
           && (
             filters.map(({ column, comparison, value }) => (
-              <div key={ column } data-testid="filter">
+              <div key={ column } data-testid="filter" className="filter-list">
                 <h5>
                   {`${column} ${comparison} ${value}`}
-                  <button
-                    type="button"
-                    name={ column }
-                    onClick={ () => { clearFilters(column); } }
-                  >
-                    X
-
-                  </button>
                 </h5>
+                <button
+                  type="button"
+                  name={ column }
+                  onClick={ () => { clearFilters(column); } }
+                >
+                  <img src={ close } alt="Close icon" />
+                </button>
               </div>
             ))
           )
-      }
+        }
+      </div>
     </header>
   );
 }
