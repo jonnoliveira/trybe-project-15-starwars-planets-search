@@ -7,6 +7,7 @@ import '../css/table.css';
 function Table() {
   const { dataFiltered, loading } = useContext(InputFilterContext);
   const { data, error } = useFetch();
+  console.log(dataFiltered);
 
   return (
     <div>
@@ -27,9 +28,7 @@ function Table() {
                 <thead>
                   <tr>
                     {
-                      Object.keys(data[0]).map((key) => (
-                        <th key={ key }>{ key }</th>
-                      ))
+                      Object.keys(data[0]).map((key) => (<th key={ key }>{ key }</th>))
                     }
                   </tr>
                 </thead>
@@ -44,17 +43,16 @@ function Table() {
                         </td>
                         <td>{ planets.rotation_period }</td>
                         <td>{ planets.orbital_period }</td>
-                        <td>{ planets.rotation_period }</td>
                         <td data-testid="planet-diameter">{ planets.diameter }</td>
                         <td>{ planets.climate }</td>
                         <td>{ planets.gravity }</td>
                         <td>{ planets.terrain }</td>
                         <td>{ planets.surface_water }</td>
                         <td>{ planets.population }</td>
-                        <td>{ planets.films }</td>
+                        <td className="url">{ planets.films }</td>
                         <td>{ planets.created }</td>
                         <td>{ planets.edited }</td>
-                        <td>{ planets.url }</td>
+                        <td className="url">{ planets.url }</td>
                       </tr>
                     ))
                   }
