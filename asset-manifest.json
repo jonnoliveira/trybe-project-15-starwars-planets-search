@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/trybe-project-15-starwars-planets-search/static/css/main.51bf8e0d.css",
+    "main.js": "/trybe-project-15-starwars-planets-search/static/js/main.3f0d6a7a.js",
+    "static/media/space.png": "/trybe-project-15-starwars-planets-search/static/media/space.7d51cd84ba86eb9a348a.png",
+    "index.html": "/trybe-project-15-starwars-planets-search/index.html",
+    "static/media/search.svg": "/trybe-project-15-starwars-planets-search/static/media/search.e7534175d389fbfc2154dcabb0743d5a.svg",
+    "main.51bf8e0d.css.map": "/trybe-project-15-starwars-planets-search/static/css/main.51bf8e0d.css.map",
+    "main.3f0d6a7a.js.map": "/trybe-project-15-starwars-planets-search/static/js/main.3f0d6a7a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51bf8e0d.css",
+    "static/js/main.3f0d6a7a.js"
+  ]
+}
