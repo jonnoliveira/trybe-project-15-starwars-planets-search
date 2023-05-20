@@ -1,5 +1,6 @@
 {
   "name": "sd-0x-project-react-context-hooks-starwars-datatable-filters",
+  "homepage": "http://jonnoliveira.github.io/trybe-project-15-starwars-planets-search",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -20,6 +21,8 @@
     ]
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "cy": "env CY_CLI=true cypress run",
     "cy:open": "cypress open --e2e --browser chrome",
     "start": "env ESLINT_NO_DEV_ERRORS=true react-scripts start",
@@ -50,6 +53,7 @@
     "cypress": "^10.11.0",
     "cypress-multi-reporters": "^1.6.2",
     "eslint-config-trybe-frontend": "1.5.0",
+    "gh-pages": "^5.0.0",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.2.2",
