@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/trybe-project-15-starwars-planets-search/static/css/main.51bf8e0d.css",
-    "main.js": "/trybe-project-15-starwars-planets-search/static/js/main.3f0d6a7a.js",
+    "main.css": "/trybe-project-15-starwars-planets-search/static/css/main.99adaa54.css",
+    "main.js": "/trybe-project-15-starwars-planets-search/static/js/main.7f259cbb.js",
     "static/media/space.png": "/trybe-project-15-starwars-planets-search/static/media/space.7d51cd84ba86eb9a348a.png",
     "index.html": "/trybe-project-15-starwars-planets-search/index.html",
+    "static/media/close.svg": "/trybe-project-15-starwars-planets-search/static/media/close.203b96a81a5e589e008d89dce670e2df.svg",
     "static/media/search.svg": "/trybe-project-15-starwars-planets-search/static/media/search.e7534175d389fbfc2154dcabb0743d5a.svg",
-    "main.51bf8e0d.css.map": "/trybe-project-15-starwars-planets-search/static/css/main.51bf8e0d.css.map",
-    "main.3f0d6a7a.js.map": "/trybe-project-15-starwars-planets-search/static/js/main.3f0d6a7a.js.map"
+    "main.99adaa54.css.map": "/trybe-project-15-starwars-planets-search/static/css/main.99adaa54.css.map",
+    "main.7f259cbb.js.map": "/trybe-project-15-starwars-planets-search/static/js/main.7f259cbb.js.map"
   },
   "entrypoints": [
-    "static/css/main.51bf8e0d.css",
-    "static/js/main.3f0d6a7a.js"
+    "static/css/main.99adaa54.css",
+    "static/js/main.7f259cbb.js"
   ]
 }
