@@ -1,0 +1,99 @@
+header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  min-height: 100vh;
+  padding: 3rem;
+}
+
+header .title-container {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.219);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+header .title-container h1 {
+  align-items: center;
+  border: 0.1rem solid rgba(255, 255, 255, 0.411);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  font-size: 5rem;
+  font-weight: 400;
+  height: 20rem;
+  justify-content: center;
+  text-align: center;
+  width: 20rem;
+}
+
+header .input-text-conatiner {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+header .input-text-conatiner input {
+  height: 3rem;
+  text-align: center;
+  width: 70%;
+}
+
+header .input-text-conatiner input::placeholder {
+  font-style: italic;
+  text-align: center;
+}
+
+header .input-text-conatiner img {
+  opacity: 0.2;
+  position: absolute;
+  right: 6rem;
+  width: 7%;
+}
+
+header .filters {
+  border: 2px solid rgba(128, 128, 128, 0.219);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 60rem;
+  justify-content: space-around;
+  padding: 1rem;
+  width: 100%;
+}
+
+header .filters label {
+  align-items: left;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 7rem;
+  justify-content: space-evenly;
+}
+
+header .radio {
+  align-items: center;
+
+  /* border: 1px solid blue;- */
+  display: flex;
+  flex-direction: column;
+}
+
+header .radio label {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+}
+
+header .radio label input {
+  height: 2rem;
+}
