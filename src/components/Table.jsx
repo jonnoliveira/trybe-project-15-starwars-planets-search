@@ -7,7 +7,6 @@ import '../css/table.css';
 function Table() {
   const { dataFiltered, loading } = useContext(InputFilterContext);
   const { data, error } = useFetch();
-  console.log(dataFiltered);
 
   return (
     <div>
@@ -18,7 +17,7 @@ function Table() {
         )
       }
       {
-        loading
+        loading && data
           ? (
             <p>Loading...</p>
           )

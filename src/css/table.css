@@ -6,7 +6,7 @@
 .table-container table {
   border: 1px solid rgba(128, 128, 128, 0.219);
   border-radius: 2rem;
-  padding-top: 2rem;
+  padding: 2rem;
 }
 
 .table-container table tr:nth-child( 2n + 2 ) {

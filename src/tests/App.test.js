@@ -162,17 +162,17 @@ describe('Test the "Header" component', () => {
     expect(beginPlanet).toBeDefined();
 
     const filterI = screen.getByRole('heading', {
-      name: /diameter maior que 8900 x/i,
+      name: /diameter maior que 8900/i,
       level: 5,
     })
 
     const filterII = screen.getByRole('heading', {
-      name: /population menor que 1000000000 x/i,
+      name: /population menor que 1000000000/i,
       level: 5
     })
 
     const filterIII = screen.getByRole('heading', {
-      name: /rotation_period igual a 12 x/i,
+      name: /rotation_period igual a 12/i,
       level: 5
     })
 
@@ -263,22 +263,22 @@ describe('Test the "Header" component', () => {
     expect(tatooinePlanet2).toBeDefined();
 
     const filterI = screen.getByRole('heading', {
-      name: /diameter maior que 8900 x/i,
+      name: /diameter maior que 8900/i,
       level: 5,
     })
 
     const filterII = screen.getByRole('heading', {
-      name: /population menor que 1000000000 x/i,
+      name: /population menor que 1000000000/i,
       level: 5
     })
 
     const filterIII = screen.getByRole('heading', {
-      name: /surface_water maior que 0 x/i,
+      name: /surface_water maior que 0/i,
       level: 5
     })
 
     const filterIV = screen.getByRole('heading', {
-      name: /rotation_period igual a 23 x/i,
+      name: /rotation_period igual a 23/i,
       level: 5
     })
 

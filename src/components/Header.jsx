@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import InputFilterContext from '../context/InputFilterContext';
 import search from '../assets/search.svg';
-import close from '../assets/close.svg';
 
 import '../css/header.css';
 
@@ -174,7 +173,7 @@ function Header() {
                   name={ column }
                   onClick={ () => { clearFilters(column); } }
                 >
-                  <img src={ close } alt="Close icon" />
+                  X
                 </button>
               </div>
             ))
