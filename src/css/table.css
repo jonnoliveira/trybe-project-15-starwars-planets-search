@@ -32,3 +32,25 @@
   text-transform: lowercase;
 }
 
+@media screen and ( min-width : 1440px ) {
+
+  :is( th ) {
+    font-size: 1.5rem;
+  }
+
+  :is( td ) {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and ( min-width : 2560px ) {
+
+  :is( th ) {
+    font-size: 2.5rem;
+  }
+
+  :is( td ) {
+    font-size: 2rem;
+  }
+
+}
