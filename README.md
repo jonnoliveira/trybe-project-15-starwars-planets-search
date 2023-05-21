@@ -94,7 +94,14 @@ Nesse projeto utilizei React com Context API e Hooks como tecnologias principais
 
 </summary>
 
-![Project-Starwars-Preview]()
+![Project-Starwars-Preview-1](https://github.com/jonnoliveira/trybe-project-15-starwars-planets-search/blob/main/images/star-preview-1.png)
+![Project-Starwars-Preview-2](https://github.com/jonnoliveira/trybe-project-15-starwars-planets-search/blob/main/images/star-preview-2.png)
+![Project-Starwars-Preview-3](https://github.com/jonnoliveira/trybe-project-15-starwars-planets-search/blob/main/images/star-preview-3.png)
+![Project-Starwars-Preview-4](https://github.com/jonnoliveira/trybe-project-15-starwars-planets-search/blob/main/images/star-preview-4.png)
+![Project-Starwars-Preview-5](https://github.com/jonnoliveira/trybe-project-15-starwars-planets-search/blob/main/images/star-preview-5.png)
+![Project-Starwars-Preview-6](https://github.com/jonnoliveira/trybe-project-15-starwars-planets-search/blob/main/images/star-preview-6.png)
+![Project-Starwars-Preview-7](https://github.com/jonnoliveira/trybe-project-15-starwars-planets-search/blob/main/images/star-preview-7.png)
+
 
 </details>
 
